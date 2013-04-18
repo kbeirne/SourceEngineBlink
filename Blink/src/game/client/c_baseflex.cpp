@@ -29,7 +29,7 @@ bool UseHWMorphVCDs();
 ConVar g_CV_PhonemeDelay("phonemedelay", "0", 0, "Phoneme delay to account for sound system latency." );
 ConVar g_CV_PhonemeFilter("phonemefilter", "0.08", 0, "Time duration of box filter to pass over phonemes." );
 ConVar g_CV_FlexRules("flex_rules", "1", 0, "Allow flex animation rules to run." );
-ConVar g_CV_BlinkDuration("blink_duration", "0.2", 0, "How many seconds an eye blink will last." );
+ConVar g_CV_BlinkDuration("blink_duration", "0.2", 0, "How many seconds an eye blink will last." );//N.B Kevin B
 ConVar g_CV_FlexSmooth("flex_smooth", "1", 0, "Applies smoothing/decay curve to flex animation controller changes." );
 
 #if defined( CBaseFlex )

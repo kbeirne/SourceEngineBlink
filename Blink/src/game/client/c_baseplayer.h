@@ -61,13 +61,16 @@ bool IsInFreezeCam( void );
 class C_BasePlayer : public C_BaseCombatCharacter
 {
 public:
+
 	DECLARE_CLASS( C_BasePlayer, C_BaseCombatCharacter );
 	DECLARE_CLIENTCLASS();
 	DECLARE_PREDICTABLE();
 	DECLARE_INTERPOLATION();
-
+	bool caughtByAngel;
 	C_BasePlayer();
 	virtual			~C_BasePlayer();
+
+	void BlinkSetHealth(int newVal) { m_iHealth = newVal; }
 
 	virtual void	Spawn( void );
 	virtual void	SharedSpawn(); // Shared between client and server.
@@ -162,7 +165,7 @@ public:
 
 
 	bool			IsSuitEquipped( void ) { return m_Local.m_bWearingSuit; };
-
+	
 	// Team handlers
 	virtual void	TeamChange( int iNewTeam );
 
@@ -365,6 +368,18 @@ protected:
 public:
 	int m_StuckLast;
 	
+	//!!! N.B Added by me
+	bool blinking;
+	bool eyesClosed;
+	float timeSinceLastBlink;
+	float blinkTime;
+	//!!!
+	bool IsBlinking() { return blinking; };
+	bool IsEyesClosed() { return eyesClosed; } ;
+	float GetTimeSinceLastBlink() { return timeSinceLastBlink; };
+	float GetTimeToBlink() { return blinkTime; }
+
+
 	// Data for only the local player
 	CNetworkVarEmbedded( CPlayerLocalData, m_Local );
 

@@ -82,7 +82,7 @@ envelopePoint_t envDefaultZombieMoanVolume[] =
 
 
 // if the zombie doesn't find anything closer than this, it doesn't swat.
-#define ZOMBIE_FARTHEST_PHYSICS_OBJECT	40.0*12.0
+#define ZOMBIE_FARTHEST_PHYSICS_OBJECT	40.0 * 12.0
 #define ZOMBIE_PHYSICS_SEARCH_DEPTH	100
 
 // Don't swat objects unless player is closer than this.
@@ -122,7 +122,6 @@ envelopePoint_t envDefaultZombieMoanVolume[] =
 // from being interrupted while.
 //
 #define ZOMBIE_FLINCH_DELAY			3
-
 
 #define ZOMBIE_BURN_TIME		10 // If ignited, burn for this many seconds
 #define ZOMBIE_BURN_TIME_NOISE	2  // Give or take this many seconds.

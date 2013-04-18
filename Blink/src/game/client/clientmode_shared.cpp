@@ -31,6 +31,17 @@
 #include "fmtstr.h"
 #include "achievementmgr.h"
 #include "c_playerresource.h"
+
+#include "HudGameOver.h"
+//#include "HudDeath.h"
+#include "HudDeath.h"
+#include "HudBlink.h"
+#include "HudCrouchTooltip.h"
+#include "HudFuseBoxTooltip.h"
+#include "HudFuseTooltip.h"
+#include "HudWalkTooltip.h"
+#include "HudInteractTooltip.h"
+#include "HudImport.h"//fuse
 #include <vgui/ILocalize.h>
 #if defined( _X360 )
 #include "xbox/xbox_console.h"
@@ -551,6 +562,7 @@ void ClientModeShared::LevelInit( const char *newmap )
 {
 	m_pViewport->GetAnimationController()->StartAnimationSequence("LevelInit");
 
+	CHudGameOver::gameOver = false;
 	// Tell the Chat Interface
 	if ( m_pChatElement )
 	{

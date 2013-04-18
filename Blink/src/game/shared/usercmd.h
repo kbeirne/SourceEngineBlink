@@ -53,8 +53,9 @@ public:
 		random_seed = 0;
 		mousedx = 0;
 		mousedy = 0;
-
 		hasbeenpredicted = false;
+
+		playerBlinking = 0;//N.B Nevik
 #if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
 		entitygroundcontact.RemoveAll();
 #endif
@@ -80,7 +81,7 @@ public:
 		mousedy				= src.mousedy;
 
 		hasbeenpredicted	= src.hasbeenpredicted;
-
+		playerBlinking		= src.playerBlinking;
 #if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
 		entitygroundcontact			= src.entitygroundcontact;
 #endif
@@ -111,6 +112,8 @@ public:
 		CRC32_ProcessBuffer( &crc, &random_seed, sizeof( random_seed ) );
 		CRC32_ProcessBuffer( &crc, &mousedx, sizeof( mousedx ) );
 		CRC32_ProcessBuffer( &crc, &mousedy, sizeof( mousedy ) );
+		
+		CRC32_ProcessBuffer( &crc, &playerBlinking, sizeof( playerBlinking ) );
 		CRC32_Final( &crc );
 
 		return crc;
@@ -146,7 +149,7 @@ public:
 
 	// Client only, tracks whether we've predicted this command at least once
 	bool	hasbeenpredicted;
-
+	short	playerBlinking;
 	// Back channel to communicate IK state
 #if defined( HL2_DLL ) || defined( HL2_CLIENT_DLL )
 	CUtlVector< CEntityGroundContact > entitygroundcontact;

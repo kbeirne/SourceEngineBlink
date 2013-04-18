@@ -6842,7 +6842,7 @@ void CAI_BaseNPC::NPCInit ( void )
 
 	// Clear conditions
 	m_Conditions.ClearAll();
-
+	
 	// set eye position
 	SetDefaultEyeOffset();
 
@@ -10060,7 +10060,7 @@ bool CAI_BaseNPC::BBoxFlat ( void )
 //-----------------------------------------------------------------------------
 void CAI_BaseNPC::SetEnemy( CBaseEntity *pEnemy, bool bSetCondNewEnemy )
 {
-	if (m_hEnemy != pEnemy)
+	if (m_hEnemy != pEnemy)// || pEnemy == NULL)//N.B changed!!
 	{
 		ClearAttackConditions( );
 		VacateStrategySlot();

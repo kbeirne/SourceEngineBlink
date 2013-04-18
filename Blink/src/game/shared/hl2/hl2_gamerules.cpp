@@ -372,6 +372,11 @@ ConVar  alyx_darkness_force( "alyx_darkness_force", "0", FCVAR_CHEAT | FCVAR_REP
 				CBaseCombatCharacter::SetDefaultRelationship( (Class_T)i, (Class_T)j, D_NU, 0 );
 			}
 		}
+		// ------------------------------------------------------------
+		//	> CLASS_ANGEL - !!!CHANGED
+		// ------------------------------------------------------------
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ANGEL,			CLASS_NONE,				D_NU, 0);			
+		CBaseCombatCharacter::SetDefaultRelationship(CLASS_ANGEL,			CLASS_PLAYER,			D_HT, 0);
 
 		// ------------------------------------------------------------
 		//	> CLASS_ANTLION
@@ -1314,7 +1319,7 @@ ConVar  alyx_darkness_force( "alyx_darkness_force", "0", FCVAR_CHEAT | FCVAR_REP
 			case CLASS_MISSILE:			return "CLASS_MISSILE";
 			case CLASS_FLARE:			return "CLASS_FLARE";
 			case CLASS_EARTH_FAUNA:		return "CLASS_EARTH_FAUNA";
-
+			case CLASS_ANGEL:			return "CLASS_ANGEL"; //- CHANGED
 			default:					return "MISSING CLASS in ClassifyText()";
 		}
 	}

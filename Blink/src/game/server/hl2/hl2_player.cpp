@@ -76,9 +76,13 @@ extern int gEvilImpulse101;
 ConVar sv_autojump( "sv_autojump", "0" );
 
 ConVar hl2_walkspeed( "hl2_walkspeed", "150" );
+ConVar hl2_normspeed( "hl2_normspeed", "100" );
+ConVar hl2_sprintspeed( "hl2_sprintspeed", "200" );
+/*
+ConVar hl2_walkspeed( "hl2_walkspeed", "150" );
 ConVar hl2_normspeed( "hl2_normspeed", "190" );
 ConVar hl2_sprintspeed( "hl2_sprintspeed", "320" );
-
+*/
 ConVar hl2_darkness_flashlight_factor ( "hl2_darkness_flashlight_factor", "1" );
 
 #ifdef HL2MP
@@ -389,7 +393,7 @@ CHL2_Player::CHL2_Player()
 }
 
 //
-// SUIT POWER DEVICES
+// SUIT POWER DEVICES //Nevik Change run duration recover here
 //
 #define SUITPOWER_CHARGE_RATE	12.5											// 100 units in 8 seconds
 
@@ -903,7 +907,7 @@ void CHL2_Player::StartAdmireGlovesAnimation( void )
 	if ( vm && !GetActiveWeapon() )
 	{
 		vm->SetWeaponModel( "models/weapons/v_hands.mdl", NULL );
-		ShowViewModel( true );
+		ShowViewModel( false );//Nevik stops hands showing
 						
 		int	idealSequence = vm->SelectWeightedSequence( ACT_VM_IDLE );
 		
@@ -1204,7 +1208,7 @@ void CHL2_Player::StartSprinting( void )
 
 	CPASAttenuationFilter filter( this );
 	filter.UsePredictionRules();
-	EmitSound( filter, entindex(), "HL2Player.SprintStart" );
+	//EmitSound( filter, entindex(), "HL2Player.SprintStart" );//Nevik disable sprint sound
 
 	SetMaxSpeed( HL2_SPRINT_SPEED );
 	m_fIsSprinting = true;
@@ -1220,14 +1224,14 @@ void CHL2_Player::StopSprinting( void )
 		SuitPower_RemoveDevice( SuitDeviceSprint );
 	}
 
-	if( IsSuitEquipped() )
-	{
-		SetMaxSpeed( HL2_NORM_SPEED );
-	}
-	else
-	{
+	//if( IsSuitEquipped() )
+	//{
+	//	SetMaxSpeed( HL2_NORM_SPEED );
+	//}
+	//else
+	//{
 		SetMaxSpeed( HL2_WALK_SPEED );
-	}
+	//}
 
 	m_fIsSprinting = false;
 
@@ -1593,7 +1597,7 @@ void CHL2_Player::CommanderExecute( CommanderCommand_t command )
 
 	if ( !pPlayerSquadLeader )
 	{
-		EmitSound( "HL2Player.UseDeny" );
+		EmitSound( "HL2Player.UseDeny" );//Nevik N.B change this
 		return;
 	}
 
@@ -1844,7 +1848,7 @@ void CHL2_Player::SuitPower_Update( void )
 void CHL2_Player::SuitPower_Initialize( void )
 {
 	m_HL2Local.m_bitsActiveDevices = 0x00000000;
-	m_HL2Local.m_flSuitPower = 100.0;
+	m_HL2Local.m_flSuitPower = 40.0;//Nevik I can use this to scale how long I want to run for
 	m_flSuitPowerLoad = 0.0;
 }
 
@@ -1881,10 +1885,10 @@ void CHL2_Player::SuitPower_Charge( float flPower )
 {
 	m_HL2Local.m_flSuitPower += flPower;
 
-	if( m_HL2Local.m_flSuitPower > 100.0 )
+	if( m_HL2Local.m_flSuitPower > 40.0 )//Nevik make sure doesn't 'recover' over 40
 	{
 		// Full charge, clamp.
-		m_HL2Local.m_flSuitPower = 100.0;
+		m_HL2Local.m_flSuitPower = 40.0;
 	}
 }
 
@@ -1952,7 +1956,7 @@ bool CHL2_Player::SuitPower_ShouldRecharge( void )
 		return false;
 
 	// Is the system fully charged?
-	if( m_HL2Local.m_flSuitPower >= 100.0f )
+	if( m_HL2Local.m_flSuitPower >= 40.0f )//Nevik
 		return false; 
 
 	// Has the system been in a no-load state for long enough
@@ -2016,7 +2020,8 @@ int CHL2_Player::FlashlightIsOn( void )
 //-----------------------------------------------------------------------------
 void CHL2_Player::FlashlightTurnOn( void )
 {
-	if( m_bFlashlightDisabled )
+	return;//noflashlight in blink
+	/*if( m_bFlashlightDisabled )
 		return;
 
 	if ( Flashlight_UseLegacyVersion() )
@@ -2034,7 +2039,7 @@ void CHL2_Player::FlashlightTurnOn( void )
 
 	variant_t flashlighton;
 	flashlighton.SetFloat( m_HL2Local.m_flSuitPower / 100.0f );
-	FirePlayerProxyOutput( "OnFlashlightOn", flashlighton, this, this );
+	FirePlayerProxyOutput( "OnFlashlightOn", flashlighton, this, this );*/
 }
 
 
@@ -2842,7 +2847,7 @@ void CHL2_Player::PlayerUse ( void )
 			// Robin: Don't play sounds for NPCs, because NPCs will allow respond with speech.
 			if ( !pUseEntity->MyNPCPointer() )
 			{
-				EmitSound( "HL2Player.Use" );
+				EmitSound( "HL2Player.Use" );//Nevik N. Replace or remove this
 			}
 		}
 
@@ -3589,7 +3594,7 @@ void CHL2_Player::ItemPostFrame()
 	if ( m_bPlayUseDenySound )
 	{
 		m_bPlayUseDenySound = false;
-		EmitSound( "HL2Player.UseDeny" );
+		//EmitSound( "HL2Player.UseDeny" );//Nevik
 	}
 }
 

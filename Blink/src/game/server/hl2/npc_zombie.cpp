@@ -237,6 +237,7 @@ void CZombie::Precache( void )
 	PrecacheModel( "models/zombie/classic.mdl" );
 	PrecacheModel( "models/zombie/classic_torso.mdl" );
 	PrecacheModel( "models/zombie/classic_legs.mdl" );
+	PrecacheModel("models/The_Sniper_9/DoctorWho/Extras/Angels/angelpoint.mdl");
 
 	PrecacheScriptSound( "Zombie.FootstepRight" );
 	PrecacheScriptSound( "Zombie.FootstepLeft" );

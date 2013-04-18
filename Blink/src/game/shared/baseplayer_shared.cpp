@@ -1296,7 +1296,7 @@ void CBasePlayer::PlayerUse ( void )
 	}
 	else if ( m_afButtonPressed & IN_USE )
 	{
-		PlayUseDenySound();
+		//PlayUseDenySound();//Nevik removed use fail sound
 	}
 #endif
 }

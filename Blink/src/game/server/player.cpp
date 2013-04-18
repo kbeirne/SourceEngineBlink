@@ -502,6 +502,7 @@ CBasePlayer *CBasePlayer::CreatePlayer( const char *className, edict_t *ed )
 	CBasePlayer *player;
 	CBasePlayer::s_PlayerEdict = ed;
 	player = ( CBasePlayer * )CreateEntityByName( className );
+	player->Blink();//hacktastic kevin b.
 	return player;
 }
 

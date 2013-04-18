@@ -759,7 +759,8 @@ void CFastZombie::SetZombieModel( void )
 	}
 	else
 	{
-		SetModel( "models/zombie/fast.mdl" );
+		SetModel("models/The_Sniper_9/DoctorWho/Extras/Angels/angelidle.mdl");//( "models/zombie/fast.mdl" );
+
 		SetHullType(HULL_HUMAN);
 	}
 

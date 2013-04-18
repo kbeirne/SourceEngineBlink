@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\Debug_episodic"
-			IntermediateDirectory=".\Debug_episodic"
+			OutputDirectory="C:\Program Files (x86)\Steam\SteamApps\sourcemods\blinkmod\bin"
+			IntermediateDirectory="C:\Program Files (x86)\Steam\SteamApps\sourcemods\blinkmod\bin"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -44,7 +44,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".\hl2;.\hl2\elements;..\..\game\shared\hl2;..\..\game\shared\episodic;..\..\public;.\;..\..\common;..\..\public;..\..\public\tier0;..\..\public\tier1;..\..\vgui2\include;..\..\vgui2\controls;..\..\game\shared;.\game_controls"
+				AdditionalIncludeDirectories=".\hl2;.\hl2\elements;..\..\game\shared\hl2;..\..\game\shared\episodic;..\..\public;.\;..\..\common;..\..\public\tier0;..\..\public\tier1;..\..\vgui2\include;..\..\vgui2\controls;..\..\game\shared;.\game_controls;&quot;C:\curl-7.16.4\include&quot;"
 				PreprocessorDefinitions="WIN32;_WIN32;_DEBUG;DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;NO_STRING_T;CLIENT_DLL;VECTOR;VERSION_SAFE_STEAM_API_INTERFACES;PROTECTED_THINGS_ENABLE;fopen=dont_use_fopen;strncpy=use_Q_strncpy_instead;_snprintf=use_Q_snprintf_instead;ENABLE_HTMLWINDOW;HL2_CLIENT_DLL;HL2_EPISODIC;SP_SDK"
 				StringPooling="true"
 				MinimalRebuild="true"
@@ -55,7 +55,7 @@
 				FloatingPointModel="2"
 				ForceConformanceInForLoopScope="true"
 				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="1"
 				PrecompiledHeaderThrough="cbase.h"
 				PrecompiledHeaderFile="$(IntDir)/client.pch"
 				AssemblerListingLocation="$(IntDir)/"
@@ -86,7 +86,7 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				UseUnicodeResponseFiles="false"
-				AdditionalDependencies="winmm.lib"
+				AdditionalDependencies="winmm.lib user32.lib wsock32.lib"
 				ShowProgress="0"
 				OutputFile="$(OutDir)/Client.dll"
 				LinkIncremental="2"
@@ -136,8 +136,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\Release_episodic"
-			IntermediateDirectory=".\Release_episodic"
+			OutputDirectory="C:\Program Files (x86)\Steam\SteamApps\sourcemods\blinkmod\bin"
+			IntermediateDirectory="C:\Program Files (x86)\Steam\SteamApps\sourcemods\blinkmod\bin"
 			ConfigurationType="2"
 			CharacterSet="2"
 			>
@@ -208,12 +208,12 @@
 				Name="VCLinkerTool"
 				IgnoreImportLibrary="true"
 				UseUnicodeResponseFiles="false"
-				AdditionalDependencies="winmm.lib"
+				AdditionalDependencies="winmm.lib user32.lib wsock32.lib"
 				ShowProgress="0"
 				OutputFile="$(OutDir)/Client.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="..\..\lib\common;..\..\lib\public"
+				AdditionalLibraryDirectories="..\..\lib\common;..\..\lib\public;"
 				GenerateManifest="false"
 				IgnoreDefaultLibraryNames="libc;libcd;libcmtd"
 				GenerateDebugInformation="true"
@@ -5122,6 +5122,150 @@
 				>
 			</File>
 		</Filter>
+		<File
+			RelativePath=".\AchievementHandler.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\AchievementHandler.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudBlink.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudBlink.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudCrouchToolTip.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudCrouchToolTip.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudDeath.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudDeath.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudFuseBoxToolTip.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudFuseBoxToolTip.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudFuseToolTip.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudFuseToolTip.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudGameOver.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudGameOver.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudImport.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudImport.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudInteractToolTip.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudInteractToolTip.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNewspaper.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNewspaper.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote1.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote1.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote2.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote2.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote3.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote3.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote4.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote4.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote5.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote5.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote6.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HUDNote6.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudRunToolTip.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudRunToolTip.h"
+			>
+		</File>
+		<File
+			RelativePath=".\HudWalkToolTip.cpp"
+			>
+		</File>
+		<File
+			RelativePath=".\HudWalkToolTip.h"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
